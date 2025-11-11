@@ -19,7 +19,7 @@
 
   body {
     color: var(--foreground);
-    background-image: url('/background.jpg');
+    background-image: url('/bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
