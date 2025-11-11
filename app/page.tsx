@@ -96,21 +96,7 @@ export default function Home() {
              Hey {context?.user?.displayName || "there"}, A ghost NFT created for the Farcaster community. It does not guarantee utility for the NFT, but owning the NFT allows for the possibility of earning unlimited incentives in the future. Minting means supporting Ghost, and Ghost will do its best..
           </p>
 
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <input
-              type="email"
-              placeholder="Your amazing email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className={styles.emailInput}
-            />
-            
-            {error && <p className={styles.error}>{error}</p>}
-            
-            <button type="submit" className={styles.joinButton}>
-              JOIN WAITLIST
-            </button>
-          </form>
+          {/* Form dihapus */}
         </div>
       </div>
     </div>
