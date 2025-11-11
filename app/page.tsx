@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const { isFrameReady, setFrameReady, context } = useMiniKit();
+  const { isFrameReady, setFrameReady, context: _context } = useMiniKit();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
@@ -51,7 +51,7 @@ export default function Home() {
           <h1 className={styles.title}>Mint Ghost NFT</h1>
           
           <p className={styles.subtitle}>
-             Hey {context?.user?.displayName || "there"}, A ghost NFT created for the Farcaster community. It does not guarantee utility for the NFT, but owning the NFT allows for the possibility of earning unlimited incentives in the future. Minting means supporting Ghost, and Ghost will do its best..
+             Hey there, A ghost NFT created for the Farcaster community. It does not guarantee utility for the NFT, but owning the NFT allows for the possibility of earning unlimited incentives in the future. Minting means supporting Ghost, and Ghost will do its best..
           </p>
 
           <form onSubmit={handleSubmit} className={styles.form}>
