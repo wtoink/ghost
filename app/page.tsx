@@ -1,7 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useQuickAuth, useMiniKit } from "@coinbase/onchainkit/minikit";
-import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useMiniKit } from "@coinbase/onchainkit/minikit";
 import styles from "./page.module.css";
 
 interface AuthResponse {
@@ -16,7 +15,6 @@ interface AuthResponse {
 
 export default function Home() {
   const { isFrameReady, setFrameReady, context } = useMiniKit();
-  const router = useRouter();
 
   // Initialize the  miniapp
   useEffect(() => {
