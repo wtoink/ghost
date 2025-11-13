@@ -1,29 +1,33 @@
-const fs = require('fs');
-const path = require('path');
+// app/generate_metadata.js
 
-// CID folder gambar di IPFS
-const IMAGE_CID = "bafybeigiopsqhvapak4hsxvbdd46edckbxueb7hxh4r3izbtijrex7ryyu";
-const OUTPUT_DIR = "./metadata"; // Folder output untuk metadata
+import fs from 'fs';
+import path from 'path';
 
-// Buat folder jika belum ada
-if (!fs.existsSync(OUTPUT_DIR)) {
-  fs.mkdirSync(OUTPUT_DIR);
+export function generateMetadata() {
+  const metadataDir = path.join(process.cwd(), 'public', 'metadata');
+  if (!fs.existsSync(metadataDir)) {
+    fs.mkdirSync(metadataDir, { recursive: true });
+  }
+
+  const attributes = [
+    { trait_type: 'Background', value: 'Purple' },
+    { trait_type: 'Eyes', value: 'Red' },
+    { trait_type: 'Mouth', value: 'Smile' },
+  ];
+
+  for (let i = 1; i <= 100; i++) {
+    const metadata = {
+      name: `Ghost #${i}`,
+      description: 'A unique and spooky ghost NFT from the Ghost Pool collection.',
+      image: `https://your-project-url.vercel.app/ghosts/${i}.png`, // Ganti dengan URL project Anda
+      attributes: attributes,
+    };
+
+    fs.writeFileSync(
+      path.join(metadataDir, `${i}.json`),
+      JSON.stringify(metadata, null, 2)
+    );
+  }
+
+  console.log('Generated 100 metadata files.');
 }
-
-// Generate metadata untuk 80 NFT
-for (let i = 1; i <= 80; i++) {
-  const metadata = {
-    name: `Farcaster NFT #${i}`,
-    description: "NFT eksklusif untuk pengguna Farcaster di Base Sepolia",
-    image: `ipfs://${IMAGE_CID}/${i}.png`, // Sesuaikan ekstensi (.png/.jpg)
-    attributes: []
-  };
-
-  // Simpan ke file
-  fs.writeFileSync(
-    path.join(OUTPUT_DIR, `${i}.json`),
-    JSON.stringify(metadata, null, 2)
-  );
-}
-
-console.log(`✅ Metadata untuk 80 NFT berhasil digenerate di folder "${OUTPUT_DIR}"`);
