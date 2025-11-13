@@ -26,7 +26,7 @@ export default function Home() {
       
       <div className={styles.content}>
         <div className={styles.waitlistForm}>
-          <h1 className={styles.title}>Mint Ghost NFT</h1>
+          <h1 className={styles.title}>Ghost Pool</h1>
           
           <p className={styles.subtitle}>
              Hey there, A ghost NFT created for the Farcaster community. It does not guarantee utility for the NFT, but owning the NFT allows for the possibility of earning unlimited incentives in the future. Minting means supporting Ghost, and Ghost will do its best..
